@@ -11,7 +11,7 @@ import java.util.UUID;
 @NoArgsConstructor
 public class Player {
 
-    private UUID id;
+    private Long id;
     private String name;
     private String email;
 
