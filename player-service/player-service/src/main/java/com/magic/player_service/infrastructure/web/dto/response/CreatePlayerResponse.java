@@ -11,7 +11,7 @@ import java.util.UUID;
 @AllArgsConstructor
 public class CreatePlayerResponse {
 
-    private Long id;
+    private UUID id;
     private String name;
     private String email;
 }

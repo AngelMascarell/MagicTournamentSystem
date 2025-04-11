@@ -5,6 +5,7 @@ import com.magic.player_service.domain.port.out.PlayerRepository;
 import com.magic.player_service.infrastructure.persistence.repository.JpaPlayerRepository;
 import com.magic.player_service.infrastructure.web.mapper.PlayerMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -36,5 +37,11 @@ public class PlayerRepositoryImpl implements PlayerRepository {
         return jpa.findAll().stream()
                 .map(e -> new Player(e.getId(), e.getName(), e.getEmail()))
                 .toList();
+    }
+
+    @Override
+    public HttpStatus delete(UUID id) {
+        jpa.deleteById(id);
+        return HttpStatus.OK;
     }
 }

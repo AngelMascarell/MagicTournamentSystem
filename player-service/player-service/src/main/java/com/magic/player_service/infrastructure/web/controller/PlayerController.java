@@ -39,4 +39,10 @@ public class PlayerController {
     public Player getPlayerById(@PathVariable UUID id) {
         return playerService.getPlayerById(id);
     }
+
+    @PostMapping("/delete/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deletePlayerById(@PathVariable UUID id) {
+        playerService.deletePlayer(id);
+    }
 }
